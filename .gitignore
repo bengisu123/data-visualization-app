@@ -1,0 +1,16 @@
+node_modules/
+uploads/
+temp/
+*.log
+.DS_Store
+.env
+*.png
+*.jpg
+*.jpeg
+*.svg
+*.mp3
+*.wav
+.Rhistory
+.RData
+__pycache__/
+*.pyc

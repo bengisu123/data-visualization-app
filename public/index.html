@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grafik Çizim ve Veri Analizi</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <h1>📊 Grafik Çizim ve Veri Analizi</h1>
+            <p>10 Farklı Grafik Türü ile Profesyonel Veri Görselleştirme</p>
+            <!-- Score badge removed -->
+        </header>
+
+        <!-- Main Grid -->
+        <div class="main-grid">
+            <!-- Left Panel: Controls -->
+            <div class="card">
+                <h2>📁 Veri Yükleme</h2>
+
+                <!-- Data Upload -->
+                <div class="upload-section">
+                    <div class="upload-area" id="dataUploadArea">
+                        <div class="upload-icon">📄</div>
+                        <p><strong>Veri Dosyası Yükle</strong></p>
+                        <p style="font-size: 0.9rem; color: #718096;">CSV veya Excel (.xlsx)</p>
+                        <input type="file" id="dataFile" class="file-input" accept=".csv,.xlsx,.xls">
+                        <button class="btn btn-primary" onclick="document.getElementById('dataFile').click()">
+                            Dosya Seç
+                        </button>
+                    </div>
+                    <div id="dataInfo" style="display: none; margin-top: 1rem;"></div>
+                </div>
+
+                <!-- Chart Type Selection -->
+                <h2 style="margin-top: 2rem;">📈 Grafik Türü Seçin</h2>
+                <div class="chart-types" id="chartTypes">
+                    <button class="chart-type-btn" data-type="boxplot">
+                        <div class="chart-name">Boxplot</div>
+                        <div class="chart-desc">Dağılım ve aykırı değerler</div>
+
+                    </button>
+                    <button class="chart-type-btn" data-type="scatter">
+                        <div class="chart-name">Scatter Plot</div>
+                        <div class="chart-desc">İki değişken ilişkisi</div>
+
+                    </button>
+                    <button class="chart-type-btn" data-type="line">
+                        <div class="chart-name">Line Chart</div>
+                        <div class="chart-desc">Zaman serisi analizi</div>
+
+                    </button>
+                    <button class="chart-type-btn" data-type="bar">
+                        <div class="chart-name">Bar Chart</div>
+                        <div class="chart-desc">Kategorik karşılaştırma</div>
+
+                    </button>
+                    <button class="chart-type-btn" data-type="histogram">
+                        <div class="chart-name">Histogram</div>
+                        <div class="chart-desc">Frekans dağılımı</div>
+
+                    </button>
+                    <button class="chart-type-btn" data-type="violin">
+                        <div class="chart-name">Violin Plot</div>
+                        <div class="chart-desc">Dağılım yoğunluğu</div>
+
+                    </button>
+                    <button class="chart-type-btn" data-type="density">
+                        <div class="chart-name">Density Plot</div>
+                        <div class="chart-desc">Sürekli dağılım</div>
+
+                    </button>
+                    <button class="chart-type-btn" data-type="heatmap">
+                        <div class="chart-name">Heatmap</div>
+                        <div class="chart-desc">Korelasyon matrisi</div>
+
+                    </button>
+                    <button class="chart-type-btn" data-type="ridgeline">
+                        <div class="chart-name">Ridgeline Plot</div>
+                        <div class="chart-desc">Çoklu dağılım</div>
+
+                    </button>
+                    <button class="chart-type-btn" data-type="pie">
+                        <div class="chart-name">Pie Chart</div>
+                        <div class="chart-desc">Oran gösterimi</div>
+
+                    </button>
+                </div>
+
+                <!-- Column Selection -->
+                <div id="columnSelection" style="display: none;">
+                    <h2>⚙️ Ayarlar</h2>
+                    <div class="form-group">
+                        <label for="xColumn">X Ekseni / Kategori</label>
+                        <select id="xColumn"></select>
+                    </div>
+                    <div class="form-group" id="yColumnGroup">
+                        <label for="yColumn">Y Ekseni / Değer</label>
+                        <select id="yColumn"></select>
+                    </div>
+                    <div class="form-group" id="groupColumnGroup" style="display: none;">
+                        <label for="groupColumn">Gruplama (Opsiyonel)</label>
+                        <select id="groupColumn">
+                            <option value="">Seçiniz...</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="chartTitle">Grafik Başlığı</label>
+                        <input type="text" id="chartTitle" placeholder="Grafik başlığı girin...">
+                    </div>
+                    <button class="btn btn-primary" id="generateBtn" style="width: 100%;">
+                        🎨 Grafik Oluştur
+                    </button>
+                </div>
+
+                <!-- Additional Uploads -->
+                <div style="margin-top: 2rem;">
+                    <h2>🖼️ Ek Dosyalar</h2>
+                    <div class="form-group">
+                        <label>Görsel Yükle</label>
+                        <input type="file" id="imageFile" accept="image/*" style="display: block;">
+                    </div>
+                    <div class="form-group">
+                        <label>Ses Dosyası Yükle</label>
+                        <input type="file" id="audioFile" accept="audio/*" style="display: block;">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Panel: Chart Preview -->
+            <div class="card">
+                <h2>📊 Grafik Önizleme</h2>
+                <div class="chart-preview" id="chartPreview">
+                    <div class="chart-placeholder">
+                        <div class="chart-placeholder-icon">📈</div>
+                        <p>Grafik burada görüntülenecek</p>
+                        <p style="font-size: 0.9rem; color: #a0aec0;">Veri yükleyin ve grafik türü seçin</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Info Section -->
+        <div class="info-section" id="infoSection" style="display: none;">
+            <h2>📋 Veri Bilgileri</h2>
+            <div class="data-info" id="dataInfoGrid"></div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+
+</html>
