@@ -66,6 +66,3 @@ PassengerId,Survived,Pclass,Name,Sex,Age,SibSp,Parch,Fare
 - **Grafik Motoru**: R (ggplot2) / Python (matplotlib, seaborn)
 - **Veri İşleme**: csv-parser, xlsx
 
-## 📝 Lisans
-
-MIT License
