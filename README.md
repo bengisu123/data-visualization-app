@@ -22,34 +22,6 @@ Modern, full-stack veri görselleştirme uygulaması. 10 farklı grafik türü, 
 - Görsel yükleme (PNG, JPG)
 - Ses dosyası yükleme (MP3, WAV)
 
-## 🚀 Kurulum
-
-### Gereksinimler
-- Node.js (v14 veya üzeri)
-- R (v4.0 veya üzeri) - Opsiyonel
-- Python (v3.8 veya üzeri) - Opsiyonel
-
-### 1. Node.js Bağımlılıklarını Yükleyin
-```bash
-npm install
-```
-
-### 2. R Paketlerini Yükleyin (R kullanacaksanız)
-```bash
-Rscript r_scripts/install_packages.R
-```
-
-### 3. Python Paketlerini Yükleyin (Python kullanacaksanız)
-```bash
-pip install -r requirements.txt
-```
-
-### 4. Sunucuyu Başlatın
-```bash
-npm start
-```
-
-Uygulama `http://localhost:3000` adresinde çalışacaktır.
 
 ## 📖 Kullanım
 
